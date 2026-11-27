@@ -1,48 +1,112 @@
-<!doctype html>
-<html lang="pt-BR" data-theme="light">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>Modelo de Jogo — Jogos VR</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app">
-      <header class="top">
-        <div>
-          <span class="kicker">Modelo</span>
-          <h1 id="title">Clique no Alvo</h1>
-          <p class="subtitle">Troque este jogo pelo seu. O contrato já está pronto.</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Desafio dos Elementos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="tema-escuro">
+  <div class="container-jogo">
+    <!-- Cabeçalho com fase, pontos, tempo e botão de tema -->
+    <header class="cabecalho">
+      <div class="titulo-area">
+        <h1>Desafio dos Elementos</h1>
+        <span class="subtitulo">Templo das Contas</span>
+      </div>
+      <div class="status-painel">
+        <div class="status-item">
+          <span class="rotulo">Fase</span>
+          <strong id="texto-fase">1 / 10</strong>
         </div>
-        <button id="restart" class="btn" type="button">Reiniciar</button>
-      </header>
+        <div class="status-item">
+          <span class="rotulo">Pontos</span>
+          <strong id="texto-pontos">0</strong>
+        </div>
+        <div class="status-item">
+          <span class="rotulo">Tempo</span>
+          <strong id="texto-tempo">00:00</strong>
+        </div>
+        <button id="botao-tema" class="botao-icone" type="button" aria-label="Alternar tema claro ou escuro" title="Mudar tema">
+          ☀️
+        </button>
+      </div>
+    </header>
 
-      <main>
-        <div class="hud">
-          <span class="pill">Alvos: <strong id="score">0</strong>/<span id="total">10</span></span>
-          <span class="pill">Tempo: <strong id="timer">0,0s</strong></span>
+    <!-- Área principal da fase do templo -->
+    <main class="area-palco">
+      <div class="instrucao-topo">
+        <span class="tag-agua">💧 Água evita Fogo</span>
+        <span class="tag-fogo">🔥 Fogo evita Água</span>
+        <span class="tag-porta" id="status-porta">🔒 Porta Trancada</span>
+      </div>
+
+      <!-- Cenário onde os personagens andam e pulam -->
+      <div class="cenario-templo" id="cenario-templo" role="img" aria-label="Cenário do templo com os personagens Água e Fogo">
+        <div class="tocha tocha-esquerda">🔥</div>
+        <div class="tocha tocha-direita">💧</div>
+
+        <!-- Obstáculos da fase são desenhados aqui pelo JavaScript -->
+        <div id="camada-obstaculos"></div>
+
+        <!-- Porta de saída do templo -->
+        <div id="porta-saida" class="porta trancada">
+          <span id="icone-porta">🔒</span>
+          <span class="texto-porta">SAÍDA</span>
         </div>
 
-        <div id="board" class="board" aria-label="Área do jogo">
-          <p id="start-hint" class="start-hint">Clique no alvo para começar</p>
+        <!-- Personagem Água -->
+        <div id="personagem-agua" class="personagem agua" aria-label="Personagem Água">
+          <span class="rosto">💧</span>
         </div>
-      </main>
 
-      <footer class="bottom">
-        <p>Este é o arquivo <code>game.js</code>. Leia os comentários e adapte.</p>
-      </footer>
-    </div>
+        <!-- Personagem Fogo -->
+        <div id="personagem-fogo" class="personagem fogo" aria-label="Personagem Fogo">
+          <span class="rosto">🔥</span>
+        </div>
 
-    <div id="result" class="overlay" hidden>
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
-        <div class="modal-icon" aria-hidden="true">🎯</div>
-        <h2 id="result-title">Muito bem!</h2>
-        <p id="result-text">Você concluiu o jogo.</p>
-        <button id="play-again" class="btn btn-primary full" type="button">Jogar de novo</button>
+        <div class="chao-pedra"></div>
+      </div>
+
+      <!-- Painel da conta matemática para destrancar a porta -->
+      <section class="painel-desafio" aria-live="polite">
+        <div class="conta-box">
+          <span class="etiqueta-conta">Resolva para destrancar a porta:</span>
+          <div id="texto-conta" class="expressao-matematica">4 + 3 = ?</div>
+        </div>
+        <div id="opcoes-resposta" class="grade-opcoes">
+          <!-- Botões de resposta gerados pelo JavaScript -->
+        </div>
+      </section>
+
+      <!-- Mensagem de retorno (acerto, erro ou aviso) -->
+      <div id="mensagem-feedback" class="feedback neutro" role="status" aria-live="polite">
+        Resolva a conta ou guie Água e Fogo juntos até a porta!
+      </div>
+
+      <!-- Controles de movimento (toque e clique) -->
+      <section class="controles-movimento" aria-label="Controles dos personagens">
+        <button id="btn-esquerda" class="botao-controle" type="button">⬅️ Esquerda</button>
+        <button id="btn-pular" class="botao-controle destaque" type="button">⬆️ Pular</button>
+        <button id="btn-direita" class="botao-controle" type="button">Direita ➡️</button>
+        <button id="btn-reiniciar-fase" class="botao-controle secundario" type="button" title="Voltar ao início da fase">🔄 Fase</button>
+      </section>
+    </main>
+
+    <!-- Tela final de vitória -->
+    <div id="tela-vitoria" class="modal-sobreposicao escondido" role="dialog" aria-modal="true">
+      <div class="modal-cartao">
+        <h2>🏆 Templo Conquistado!</h2>
+        <p id="resumo-vitoria">Você guiou Água e Fogo pelas 10 fases e dominou as contas!</p>
+        <div class="placar-final">
+          <div>Pontuação: <strong id="final-pontos">0</strong></div>
+          <div>Tempo total: <strong id="final-tempo">00:00</strong></div>
+        </div>
+        <button id="btn-jogar-novamente" class="botao-principal" type="button">Jogar Novamente</button>
       </div>
     </div>
+  </div>
 
-    <script src="game.js"></script>
-  </body>
+  <script src="game.js"></script>
+</body>
 </html>

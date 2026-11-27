@@ -1,38 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Capa de modelo de jogo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1120" />
-      <stop offset="1" stop-color="#1e3a8a" />
+    <linearGradient id="fundoTemplo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="100%" stop-color="#36302c" />
     </linearGradient>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.07" />
-    </pattern>
+    <linearGradient id="brilhoOuro" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#fb923c" />
+    </linearGradient>
   </defs>
 
-  <rect width="800" height="450" fill="url(#bg)" />
-  <rect width="800" height="450" fill="url(#grid)" />
-  <circle cx="690" cy="60" r="150" fill="#3b82f6" opacity="0.2" />
+  
+  <rect width="800" height="450" fill="url(#fundoTemplo)" />
 
-  <g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
-    <text x="56" y="72" fill="#93c5fd" font-size="15" font-weight="800" letter-spacing="4">JOGOS VR</text>
+  
+  <rect x="30" y="30" width="44" height="360" rx="6" fill="#44403c" stroke="#78716c" stroke-width="3" />
+  <rect x="726" y="30" width="44" height="360" rx="6" fill="#44403c" stroke="#78716c" stroke-width="3" />
 
-    <g transform="translate(520 130)">
-      <circle cx="90" cy="90" r="86" fill="none" stroke="#334155" stroke-width="14" />
-      <circle cx="90" cy="90" r="56" fill="none" stroke="#f59e0b" stroke-width="14" />
-      <circle cx="90" cy="90" r="26" fill="#3b82f6" />
-      <circle cx="90" cy="90" r="8" fill="#ffffff" />
-    </g>
+  
+  <rect x="0" y="385" width="800" height="65" fill="#57534e" />
+  <line x1="0" y1="385" x2="800" y2="385" stroke="#a8a29e" stroke-width="4" />
 
-    <text x="56" y="280" fill="#ffffff" font-size="54" font-weight="900" letter-spacing="-1.5">Seu jogo aqui</text>
-    <text x="58" y="320" fill="#bfdbfe" font-size="19" font-weight="600">Copie esta pasta, troque o conteúdo e entregue.</text>
+  
+  <path d="M 355 385 L 355 275 A 45 45 0 0 1 445 275 L 445 385 Z" fill="#292524" stroke="#facc15" stroke-width="5" />
+  <circle cx="428" cy="332" r="5" fill="#facc15" />
 
-    <g transform="translate(58 352)">
-      <rect width="128" height="34" rx="17" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.2" />
-      <text x="64" y="22" fill="#e2e8f0" font-size="12" font-weight="700" text-anchor="middle">pasta-modelo</text>
-    </g>
-    <g transform="translate(198 352)">
-      <rect width="150" height="34" rx="17" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-opacity="0.2" />
-      <text x="75" y="22" fill="#e2e8f0" font-size="12" font-weight="700" text-anchor="middle">HTML + CSS + JS</text>
-    </g>
-  </g>
+  
+  <rect x="210" y="375" width="85" height="12" rx="6" fill="#ea580c" />
+  <rect x="505" y="375" width="85" height="12" rx="6" fill="#0284c7" />
+
+  
+  <circle cx="155" cy="350" r="26" fill="#0284c7" stroke="#7dd3fc" stroke-width="4" />
+  <polygon points="155,308 134,340 176,340" fill="#38bdf8" />
+  <circle cx="147" cy="348" r="3.5" fill="#ffffff" />
+  <circle cx="163" cy="348" r="3.5" fill="#ffffff" />
+
+  
+  <circle cx="645" cy="350" r="26" fill="#ea580c" stroke="#fdba74" stroke-width="4" />
+  <polygon points="645,306 623,340 667,340" fill="#fb923c" />
+  <circle cx="637" cy="348" r="3.5" fill="#ffffff" />
+  <circle cx="653" cy="348" r="3.5" fill="#ffffff" />
+
+  
+  <text x="235" y="250" font-family="system-ui, sans-serif" font-size="34" font-weight="bold" fill="#38bdf8" opacity="0.8">+</text>
+  <text x="545" y="250" font-family="system-ui, sans-serif" font-size="34" font-weight="bold" fill="#fb923c" opacity="0.8">×</text>
+  <text x="315" y="210" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#facc15" opacity="0.75">−</text>
+  <text x="470" y="210" font-family="system-ui, sans-serif" font-size="28" font-weight="bold" fill="#facc15" opacity="0.75">÷</text>
+
+  
+  <text x="400" y="105" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="900" fill="url(#brilhoOuro)">
+    DESAFIO DOS ELEMENTOS
+  </text>
+  <text x="400" y="148" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#e7e5e4">
+    Matemática • 10 Fases no Templo
+  </text>
+  <text x="400" y="425" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#d6d3d1">
+    Criado por Sophia • Turma 9B
+  </text>
 </svg>

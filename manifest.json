@@ -1,16 +1,27 @@
 {
-  "slug": "meu-jogo",
-  "title": "Nome do meu jogo",
-  "author": "Seu nome",
-  "authorClass": "Sua turma",
+  "slug": "desafio-dos-elementos",
+  "title": "Desafio dos Elementos",
+  "author": "Sophia",
+  "authorClass": "9B",
   "discipline": "Matemática",
-  "grades": ["6º", "7º"],
-  "tags": ["palavra-chave", "outra-palavra"],
-  "description": "Uma frase curta que explica o que o jogo ensina.",
-  "instructions": "Como jogar, em uma ou duas frases.",
-  "duration": 5,
+  "grades": [
+    "6º ano",
+    "7º ano",
+    "8º ano",
+    "9º ano"
+  ],
+  "tags": [
+    "matemática",
+    "contas básicas",
+    "lógica",
+    "água e fogo",
+    "templo"
+  ],
+  "description": "Guie os personagens Água e Fogo juntos por 10 fases de um templo antigo, pulando obstáculos opostos e resolvendo contas básicas para destrancar as portas.",
+  "instructions": "Use os botões na tela (ou as setas do teclado e Espaço) para andar e pular sobre as poças. Clique no resultado certo da conta matemática para destrancar a porta de saída e leve os dois personagens até ela.",
+  "duration": "3 min",
   "version": "1.0.0",
   "entry": "index.html",
   "cover": "cover.svg",
-  "createdAt": "2026-11-02"
+  "createdAt": "2026-11-27"
 }
